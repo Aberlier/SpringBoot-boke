@@ -1,6 +1,5 @@
 package com.zjc.bokeCMS.controller;
 
-import com.zjc.bokeCMS.Controller.UserController;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
