@@ -1,4 +1,4 @@
-package com.zjc.bokeCMS.entity;
+package com.zjc.bokecms.entity;
 
 /**
  * @program: bokecms

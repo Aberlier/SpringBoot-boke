@@ -1,4 +1,4 @@
-package com.zjc.bokeCMS.controller;
+package com.zjc.bokecms.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

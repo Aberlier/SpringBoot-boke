@@ -1,4 +1,4 @@
-package com.zjc.bokeCMS.bokecms;
+package com.zjc.bokecms.bokecms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
