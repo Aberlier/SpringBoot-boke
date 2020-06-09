@@ -21,18 +21,20 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @ResponseBody
     @RequestMapping(value="/hello",method = RequestMethod.GET)
     public String hello(){
-        return "Hello Word!";
+        return "index";
     }
 
     @GetMapping("/getUserById")
+    @ResponseBody
+    //测试地址为：https://localhost:8081/boke/getUserById?id=1
     public String getUserById(Integer id){
         return userService.getUserById(id);
     }
 
     @GetMapping("/deleteUserById")
+    @ResponseBody
     public void deleteUserById(Integer id){
         userService.deleteUserById(id);
     }
