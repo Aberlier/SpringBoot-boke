@@ -1,6 +1,7 @@
 package com.zjc.bokecms.controller;
 
-import com.zjc.bokecms.service.UserService;
+import com.zjc.bokecms.entity.Book;
+import com.zjc.bokecms.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    BookService bookService;
 
     @RequestMapping(value="/hello",method = RequestMethod.GET)
     public String hello(){
@@ -29,14 +30,14 @@ public class UserController {
     @GetMapping("/getUserById")
     @ResponseBody
     //测试地址为：https://localhost:8081/boke/getUserById?id=1
-    public String getUserById(Integer id){
-        return userService.getUserById(id);
+    public Book getUserById(Integer id){
+        return bookService.getBookById(id);
     }
 
     @GetMapping("/deleteUserById")
     @ResponseBody
     public void deleteUserById(Integer id){
-        userService.deleteUserById(id);
+        bookService.deleteBookById(id);
     }
 
 }
