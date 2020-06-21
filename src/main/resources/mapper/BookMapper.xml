@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zjc.bokecms.mapper.BookMapper">
     <insert id="addBook" parameterType="com.zjc.bokecms.entity.Book">
-        INSERT INTO bookinfo(name,author) VALUES (#{name},#{author});
+        INSERT INTO bookinfo(author,name,price,description) VALUES (#{author},#{name},#{price},#{description});
     </insert>
 
      <delete id="deleteBookById" parameterType="int">
@@ -10,7 +10,7 @@
      </delete>
 
      <update id="updateBookById" parameterType="com.zjc.bokecms.entity.Book">
-        UPDATE bookinfo set name=#{name},author=#{author} WHERE id=#{id}
+        UPDATE bookinfo set author=#{author},name=#{name} WHERE id=#{id}
      </update>
 
      <select id="getBookById" parameterType="int" resultType="com.zjc.bokecms.entity.Book">

@@ -14,7 +14,6 @@ import java.util.List;
  * @create: 2020-06-10 20:45
  **/
 
-@Mapper
 public interface BookMapper {
     int addBook(Book book);
 
@@ -22,7 +21,7 @@ public interface BookMapper {
 
     int updateBookById(Book book);
 
-    Book getBookById();
+    Book getBookById(Integer id);
 
     List<Book> getAllBooks();
 

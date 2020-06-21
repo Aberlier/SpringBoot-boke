@@ -3,9 +3,8 @@ package com.zjc.bokecms.controller;
 import com.zjc.bokecms.entity.Book;
 import com.zjc.bokecms.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -16,28 +15,46 @@ import java.util.List;
  * @author: zjc
  * @create: 2020-06-13 15:03
  **/
-@RestController
+@Controller
+@RequestMapping("/api/book")
 public class BookController {
     @Autowired
     BookService bookService;
 
-    @GetMapping("/bookOps")
-    public void bookOps() {
-        Book book = new Book();
-        book.setName("java开发程序设计");
-        book.setAuthor("no");
-        int i = bookService.addBook(book);
-        System.out.println("addbook---" + i);
-        Book book2 = new Book();
-        book2.setName("其他书籍");
-        book2.setAuthor("yes");
-        int updateBook = bookService.updateBook(book2);
-        System.out.println("updateBook-------" + updateBook);
-        Book selectById = bookService.getBookById(16);
-        System.out.println("selectById-------" + selectById);
-        int deleteBook = bookService.deleteBookById(15);
-        System.out.println("deleteById-----" + deleteBook);
-        List<Book> getAllBooks = bookService.getAllBooks();
-        System.out.println("getAllBooks----" + getAllBooks);
+    @RequestMapping(value="/add",method = RequestMethod.POST)
+    @ResponseBody
+    public String addBooks(@RequestBody Book book) {
+        String msg="";
+        int flag=bookService.addBook(book);
+        if (flag>0)
+        {
+            msg="success";
+        }else{
+            msg="fail";
+        }
+        return msg;
+    }
+
+    @RequestMapping(value="/update",method = RequestMethod.PUT)
+    @ResponseBody
+    public int update(@RequestBody Book book){
+        return bookService.updateBook(book);
+    }
+
+    @RequestMapping(value="/getBookById",method = RequestMethod.GET)
+    @ResponseBody
+    public Book getBookById(@RequestParam Integer id){
+        System.out.println(id);
+        return bookService.getBookById(id);
+    }
+    @RequestMapping(value="/getBooksAll",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Book>  getBooksAll(){
+        return bookService.getAllBooks();
+    }
+    @RequestMapping(value="/deleteBookById",method = RequestMethod.DELETE)
+    @ResponseBody
+    public int deleteBookById(@RequestParam Integer id){
+        return bookService.deleteBookById(id);
     }
 }
