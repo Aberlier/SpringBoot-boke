@@ -1,0 +1,22 @@
+<ehcache>
+
+    <diskStore path="java,io,tmpdir/cache"/>
+<defaultCache
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSecouds="120"
+    timeToLiveSeconds="120"
+    overflowToDisk="false"
+    diskPersistent="false"
+    diskExpiryThreadIntervalSeconds="120"
+/>
+    <cache
+        name="book_cache"
+        eternal="true"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="false"
+        diskPersistent="false"
+        diskExpiryThreadIntervalSecounds="120"
+    />
+</ehcache>
